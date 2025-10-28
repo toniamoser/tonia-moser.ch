@@ -14,14 +14,24 @@ const projects = [
 ];
 
 /* ---- Parameter ---- */
-const WAIT_SCALE   = 0.75;    // Größe des wartenden Bilds
-const GAP_RATIO    = 1.1;    // 20% der Medienhöhe fühlt sich gut an
-const MIN_GAP_PX   = 10;      // Mindest-Weißraum (deine Anforderung)
+const WAIT_SCALE   = 0.75;   // Größe des wartenden Bilds
+const GAP_RATIO    = 1.1;    // dein aktueller Wert
+const MIN_GAP_PX   = 10;     // dein aktueller Mindestabstand
 const DUR          = 1.4;
 const EASE         = "power2.inOut";
 
 let GAP_PX = 0;
 let tl;
+
+/* Helper: Text mit kleinem Fade/Slide setzen */
+function setTextByIndex(i) {
+  eyebrowEl.textContent = projects[i].eyebrow;
+  titleEl.textContent   = projects[i].title;
+  gsap.fromTo([eyebrowEl, titleEl],
+    { y: 10, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" }
+  );
+}
 
 /* Startzustand komplett setzen (und bei Resize neu berechnen) */
 function setStart() {
@@ -29,16 +39,15 @@ function setStart() {
   gsap.set(images, { clearProps: "transform" });
 
   const H = mediaEl.clientHeight;
-  GAP_PX  = Math.max(MIN_GAP_PX, Math.round(H * GAP_RATIO));  // => mind. 40px
+  GAP_PX  = Math.max(MIN_GAP_PX, Math.round(H * GAP_RATIO));
 
   // Text initial
-  eyebrowEl.textContent = projects[0].eyebrow;
-  titleEl.textContent   = projects[0].title;
+  setTextByIndex(0);
 
   // Karten stapeln: oben aktiv, darunter mit konstantem Gap
-  gsap.set(images[0], { zIndex: 3, scale: 1.00, y: 0,            autoAlpha: 1, transformOrigin: "center center" });
-  if (images[1]) gsap.set(images[1], { zIndex: 2, scale: WAIT_SCALE, y: GAP_PX,         autoAlpha: 1, transformOrigin: "center top" });
-  if (images[2]) gsap.set(images[2], { zIndex: 1, scale: WAIT_SCALE, y: GAP_PX * 2,     autoAlpha: 1, transformOrigin: "center top" });
+  gsap.set(images[0], { zIndex: 3, scale: 1.00, y: 0,             autoAlpha: 1, transformOrigin: "center center" });
+  if (images[1]) gsap.set(images[1], { zIndex: 2, scale: WAIT_SCALE, y: GAP_PX,      autoAlpha: 1, transformOrigin: "center top" });
+  if (images[2]) gsap.set(images[2], { zIndex: 1, scale: WAIT_SCALE, y: GAP_PX * 2,  autoAlpha: 1, transformOrigin: "center top" });
 }
 
 function buildTimeline() {
@@ -56,12 +65,12 @@ function buildTimeline() {
     }
   });
 
+  // Animations-Steps (1->2, 2->3)
   images.forEach((current, i) => {
     if (i === images.length - 1) return;
 
     const next      = images[i + 1];
     const afterNext = images[i + 2];
-    const proj      = projects[i + 1];
 
     const label = `step${i}`;
     tl.addLabel(label);
@@ -77,17 +86,35 @@ function buildTimeline() {
       tl.to(afterNext, { y: GAP_PX, ease: EASE, duration: DUR }, label);
     }
 
-    // Text früher wechseln (~35% im Step)
-    tl.add(() => {
-      eyebrowEl.textContent = proj.eyebrow;
-      titleEl.textContent   = proj.title;
-      gsap.fromTo([eyebrowEl, titleEl], { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" });
-    }, `${label}+=${DUR * 0.35}`);
-
     // Nach dem Step: rausgeschobenes Bild endgültig "parken", Z-Order fixen
     tl.set(current, { autoAlpha: 0 }, `${label}+=${DUR}`);
     tl.set(next,    { zIndex: 3     }, `${label}+=${DUR}`);
     if (afterNext) tl.set(afterNext, { zIndex: 2 }, `${label}+=${DUR}`);
+  });
+
+  /* --- STABILER TEXT-SYNC: thresholds an der Timeline, Update je nach Zeit --- */
+  const thresholds = [0]; // Zeitpunkte (in tl.time), ab denen Projekt i angezeigt wird
+  for (let i = 0; i < images.length - 1; i++) {
+    thresholds.push(tl.labels[`step${i}`] + DUR * 0.35); // ~35% nach Step-Beginn
+  }
+  // example: bei 3 Bildern -> thresholds: [0, t(step0)+0.35*DUR, t(step1)+0.35*DUR]
+
+  let lastIndex = -1;
+
+  tl.eventCallback("onUpdate", () => {
+    const t = tl.time();
+    // aktiven Index ermitteln: größter Index, dessen threshold <= t
+    let idx = 0;
+    for (let k = 0; k < thresholds.length; k++) {
+      if (t >= thresholds[k]) idx = k;
+    }
+    // Schutz: clamp
+    idx = Math.min(idx, projects.length - 1);
+
+    if (idx !== lastIndex) {
+      setTextByIndex(idx);
+      lastIndex = idx;
+    }
   });
 }
 
@@ -96,5 +123,6 @@ setStart();
 buildTimeline();
 window.addEventListener("resize", () => {
   setStart();
+  buildTimeline();
   ScrollTrigger.refresh();
 });
