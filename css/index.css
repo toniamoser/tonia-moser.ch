@@ -23,81 +23,92 @@
   align-items: center;
 }
 
-
-/* Section-Hintergrund wie im Screenshot */
-.featured{
-  background:#fbf3e6; /* leichtes Creme – passe bei Bedarf an */
-  padding: clamp(48px, 8vw, 120px) 0;
+/* Featured */
+:root {
+  --cream: #ffffff;
+  --text: #2d2b29;
 }
 
-/* Max-Breite + Seitenabstand */
-.featured__inner{
-  max-width: 1200px;
-  margin: 0 auto;
+.featured {
+  position: relative;
+  background: var(--cream);
+}
+
+.featured__pin {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.featured__grid {
+  width: min(1200px, 100%);
   padding: 0 clamp(20px, 5vw, 60px);
   display: grid;
-  grid-template-columns: 1fr minmax(0, 700px);
+  grid-template-columns: 1fr minmax(0, 720px);
   gap: clamp(24px, 5vw, 80px);
-  align-items: start;
+  align-items: center;
+  color: var(--text);
 }
 
-/* Text links */
-.featured__text{
-  align-self: start;
-  padding-top: clamp(12px, 2vw, 24px);
+/* Linke Spalte: deine Fonts */
+.h2loretta {
+  margin: 0 0 0.25em 0;
+}
+h2 {
+  margin: 0;
 }
 
-/* Medien rechts */
-.featured__media{
-  display: grid;
-  gap: clamp(20px, 3vw, 36px);
+/* Bild-Container */
+.featured__media {
+  position: relative;
+  width: 100%;
+  height: min(62vh, 560px);
+  overflow: visible;
 }
 
-/* Bilder – große Rundungen + sanfter Schatten */
-.shot{
-  border-radius: 22px;
-  overflow: hidden;
-}
-.shot img{
-  display:block;
-  width:100%;
-  height:100%;
+/* Bilder übereinander */
+.featured__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-}
-
-/* Oberes Bild: vollbreit, 16:9 Feeling */
-.shot--primary{
-  aspect-ratio: 16/9;
   border-radius: 22px;
+  transform-origin: center center;
+  transition:none;          /* <— WICHTIG: GSAP übernimmt, keine CSS-Transitions */
+  will-change: transform;
 }
 
-/* Unteres Bild: etwas kleiner, nach rechts eingerückt */
-.shot--secondary{
-  aspect-ratio: 16/9;
-  width: 78%;
-  margin-left: auto;     /* nach rechts schieben */
-  border-radius: 18px;   /* leicht kleinere Rundung für Varianz */
+/* Anfangszustand: untere Bilder sind kleiner und unten versetzt */
+.featured__img:nth-child(1) {
+  z-index: 3;
+  transform: scale(1) translateY(0);
+}
+.featured__img:nth-child(2) {
+  z-index: 2;
+  transform: scale(0.75) translateY(8vh);
+}
+.featured__img:nth-child(3) {
+  z-index: 1;
+  transform: scale(0.75) translateY(8vh);
 }
 
-/* Responsive: unter 900px alles untereinander, volle Breite */
-@media (max-width: 900px){
-  .featured__inner{
+/* Nachfolgende Section */
+.next-section {
+  background: white;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 900px) {
+  .featured__grid {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
-  .featured__text{
-    order: 0;
-  }
-  .featured__media{
-    order: 1;
-  }
-  .shot--secondary{
-    width: 90%;
-    margin-inline: auto; /* zentriert */
+  .featured__media {
+    height: min(56vh, 420px);
   }
 }
-
-/* Optional: sehr kleine Screens – Rundungen etwas reduzieren */
-@media (max-width: 520px){
-  .shot, .shot--primary, .shot--secondary{ border-radius: 14px; }
-}
-
