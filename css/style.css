@@ -3,6 +3,8 @@ html, body {
   padding: 0;
   height: 100%;
   color: #303030;
+    overflow-x: clip; /* moderne Browser */
+
 }
 
 h1 {

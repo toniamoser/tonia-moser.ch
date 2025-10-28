@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
     <!-- Navigation -->
     <header class="site-header">
@@ -66,18 +67,60 @@
   </div>
 </section>
 
-<!-- Nächste Section -->
-<section class="next-section">
-  <div class="container">
-    <h2>Next Section</h2>
-    <p>Hier geht’s weiter mit normalem Scrollen.</p>
+<!-- RIBBON SECTION -->
+<section class="ribbon">
+  <div class="ribbon__inner">
+    <div class="marquee" id="ribbonMarquee">
+      <div class="marquee__track" id="ribbonTrack">
+        <span>Design mit Sinn</span>
+        <img src="img/star.svg" alt="*" class="ribbon__star" />
+        <span>Design mit Sinn</span>
+        <img src="img/star.svg" alt="*" class="ribbon__star" />
+        <span>Design mit Sinn</span>
+        <img src="img/star.svg" alt="*" class="ribbon__star" />
+        <span>Design mit Sinn</span>
+        <img src="img/star.svg" alt="*" class="ribbon__star" />
+        <span>Design mit Sinn</span>
+        <img src="img/star.svg" alt="*" class="ribbon__star" />
+        <span>Design mit Sinn</span>
+        <img src="img/star.svg" alt="*" class="ribbon__star" />
+        <span>Design mit Sinn</span>
+        <img src="img/star.svg" alt="*" class="ribbon__star" />
+      </div>
+    </div>
   </div>
+
+  <!-- next SECTION -->
+   <!-- TEST SECTION -->
+<section class="next-section">
+  <div class="next-section__inner">
+    <h2 class="h2loretta">Nächster Abschnitt</h2>
+    <p>
+      Dies ist ein Beispielabschnitt unterhalb des Ribbon-Balkens. 
+      Er dient nur dazu, das Scrollverhalten und die Fixierung des Balkens zu testen. 
+      Wenn du nach unten scrollst, sollte der Balken fixiert bleiben, 
+      während dieser Inhalt normal nach oben vorbeiläuft.
+    </p>
+
+    <div class="next-section__grid">
+      <div class="card">Beispiel 1</div>
+      <div class="card">Beispiel 2</div>
+      <div class="card">Beispiel 3</div>
+      <div class="card">Beispiel 4</div>
+      <div class="card">Beispiel 5</div>
+      <div class="card">Beispiel 6</div>
+    </div>
+  </div>
+</section>
+
 </section>
 
 <!-- GSAP -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="js/featured.js"></script>
+
+<script src="js/ribbon.js"></script>
 
   
 

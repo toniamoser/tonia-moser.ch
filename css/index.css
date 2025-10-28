@@ -112,3 +112,75 @@ h2 {
     height: min(56vh, 420px);
   }
 }
+
+
+/* === Ribbon Section === */
+.ribbon {
+  position: relative;
+  width: 100%;
+  margin-top: 6rem; /* Abstand nach Featured Projects */
+  overflow: visible;      /* wichtig: nichts abschneiden */
+  min-height: 0;  
+}
+
+.ribbon__inner {
+  position: relative;
+  left: -20px;
+  width: 120vw;
+  transform: rotate(-8deg);
+  border-radius: 14px;
+  background: linear-gradient(90deg, #ffbde0 0%, #fff4a9 100%);
+  overflow: hidden;
+  padding: 0 !important;
+  display: block;
+}
+
+.marquee {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.marquee__track {
+ padding: 32px 0px;   /* wichtig für nahtlose Wiederholung */
+  margin: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 1rem;               /* Abstand zwischen Text und Stern */
+  will-change: transform;
+}
+
+/* Text im Ribbon */
+.marquee__track span {
+  font-family: "Loretta Display", serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(16px, 3vw, 32px);
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* SVG-Stern */
+.ribbon__star {
+  width: clamp(20px, 3vw, 32px);
+  height: auto;
+  display: inline-block;
+}
+
+/* Mobile Anpassungen */
+@media (max-width: 700px) {
+  .ribbon__inner {
+    height: clamp(48px, 9vw, 80px);
+    transform: rotate(-7deg);
+  }
+  .marquee__track {
+    gap: 2rem;
+  }
+  .marquee__track span {
+    font-size: clamp(18px, 5vw, 32px);
+  }
+}
