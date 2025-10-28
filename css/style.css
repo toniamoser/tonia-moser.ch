@@ -1,0 +1,140 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #303030;
+}
+
+h1 {
+font-family: Montserrat;
+font-size: 44px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase;
+margin: 0 0 10px 0 
+}
+
+.h1loretta {
+font-family: "Loretta Display";
+font-size: 46px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+text-transform: none;
+}
+
+.italic {
+    font-style: italic;
+}
+
+h2 {
+font-family: Montserrat;
+font-size: 28px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase;
+margin: 0 0 10px 0 
+}
+
+.h2loretta {
+font-family: "Loretta Display";
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+text-transform: none;
+}
+
+h3 {
+font-family: Montserrat;
+font-size: 22px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase;
+}
+
+h4 {
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase;
+}
+
+p {
+    font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 24px */
+}
+
+
+/* ----- NAVIGATION ----- */
+.site-header {
+  position: absolute; /* <-- Wichtig: über dem Hero positionieren */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /* Damit sie über der Animation liegt */
+  background: transparent; /* kein weißer Hintergrund */
+}
+
+.nav-wrapper {
+  width: 100%;
+  background: none;
+}
+
+.nav-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 22px clamp(16px, 4vw, 20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand img {
+  height: clamp(26px, 4vw, 30px);
+  width: auto;
+}
+nav.primary {
+  display: flex;
+  gap: clamp(12px, 7vw, 40px);
+}
+nav.primary a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #303030;
+  transition: text-decorations 1s ease;
+}
+nav.primary a:hover { 
+    text-decoration: underline;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #303030;
+  font-family: Loretta Display;
+  font-weight: 500;
+  font-style: italic;
+}
+.cta .label {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+.cta .arrow-svg {
+  width: clamp(14px, 2vw, 10px);
+  height: auto;
+}
+.cta:hover .label { border-bottom-color: #2d2b29cc; }

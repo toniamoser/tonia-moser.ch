@@ -1,0 +1,103 @@
+.header-content{
+    position: relative;
+    z-index: 2; /* Damit der Text über dem Finisher liegt */
+    text-align: center;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh; /* oder was du brauchst */
+  display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center;     /* vertikal */
+  text-align: center;
+  position: relative; /* falls der Finisher-Effekt positioniert wird */
+}
+
+.finisher-header {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Section-Hintergrund wie im Screenshot */
+.featured{
+  background:#fbf3e6; /* leichtes Creme – passe bei Bedarf an */
+  padding: clamp(48px, 8vw, 120px) 0;
+}
+
+/* Max-Breite + Seitenabstand */
+.featured__inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 60px);
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 700px);
+  gap: clamp(24px, 5vw, 80px);
+  align-items: start;
+}
+
+/* Text links */
+.featured__text{
+  align-self: start;
+  padding-top: clamp(12px, 2vw, 24px);
+}
+
+/* Medien rechts */
+.featured__media{
+  display: grid;
+  gap: clamp(20px, 3vw, 36px);
+}
+
+/* Bilder – große Rundungen + sanfter Schatten */
+.shot{
+  border-radius: 22px;
+  overflow: hidden;
+}
+.shot img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+
+/* Oberes Bild: vollbreit, 16:9 Feeling */
+.shot--primary{
+  aspect-ratio: 16/9;
+  border-radius: 22px;
+}
+
+/* Unteres Bild: etwas kleiner, nach rechts eingerückt */
+.shot--secondary{
+  aspect-ratio: 16/9;
+  width: 78%;
+  margin-left: auto;     /* nach rechts schieben */
+  border-radius: 18px;   /* leicht kleinere Rundung für Varianz */
+}
+
+/* Responsive: unter 900px alles untereinander, volle Breite */
+@media (max-width: 900px){
+  .featured__inner{
+    grid-template-columns: 1fr;
+  }
+  .featured__text{
+    order: 0;
+  }
+  .featured__media{
+    order: 1;
+  }
+  .shot--secondary{
+    width: 90%;
+    margin-inline: auto; /* zentriert */
+  }
+}
+
+/* Optional: sehr kleine Screens – Rundungen etwas reduzieren */
+@media (max-width: 520px){
+  .shot, .shot--primary, .shot--secondary{ border-radius: 14px; }
+}
+
