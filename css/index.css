@@ -119,13 +119,13 @@ h2 {
   position: relative;
   width: 100%;
   margin-top: 6rem; /* Abstand nach Featured Projects */
+  margin-bottom: 6rem;
   overflow: visible;      /* wichtig: nichts abschneiden */
   min-height: 0;  
 }
 
 .ribbon__inner {
   position: relative;
-  left: -20px;
   width: 120vw;
   transform: rotate(-8deg);
   border-radius: 14px;
@@ -183,4 +183,78 @@ h2 {
   .marquee__track span {
     font-size: clamp(18px, 5vw, 32px);
   }
+}
+
+
+
+/* ===== ABOUT TEASER SECTION ===== */
+.about-teaser {
+  position: relative;
+  margin-top: 0.2 rem;                     /* dichter am Ribbon */
+  padding-block: clamp(3rem, 7vh, 5rem);    /* weniger Weißraum */
+  overflow: visible;
+}
+
+.about-teaser__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: min(8vw, 64px);
+}
+
+/* Bühne hält die Höhe; Content zentriert; Bilder liegen absolut darüber */
+.about-teaser__stage {
+  position: relative;
+  min-height: clamp(420px, 56vh, 640px);    /* bei ~1200px ≈ 560px */
+  display: grid;
+  place-items: center;
+}
+
+.about-teaser__photos {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;                     /* klickt nichts weg */
+}
+
+/* Bilder starten EXAKT in der Mitte (keine CSS-Offsets mehr) */
+.about-teaser__item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);         /* nur zentrieren */
+  border-radius: 18px;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.about-teaser__item img {
+  display: block;
+  width: 24vw;                               /* kleiner als vorher */
+  max-width: 360px;
+  min-width: 220px;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Text in der Mitte der Bühne */
+.about-teaser__content {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+  top: -100px;
+}
+
+.about-teaser__btn {
+  display: inline-block;
+  border: 1px solid #303030;
+  padding: .85rem 1.25rem;
+  border-radius: 999px;
+  transition: background .3s ease;
+}
+.about-teaser__btn:hover { background:#222; color:#fff; }
+
+/* Mobile */
+@media (max-width: 900px){
+  .about-teaser__item img { width: 36vw; max-width: 320px; }
+  .about-teaser__stage    { min-height: clamp(380px, 70vh, 560px); }
 }

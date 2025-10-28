@@ -89,38 +89,53 @@
       </div>
     </div>
   </div>
+</section>
 
-  <!-- next SECTION -->
-   <!-- TEST SECTION -->
-<section class="next-section">
-  <div class="next-section__inner">
-    <h2 class="h2loretta">Nächster Abschnitt</h2>
-    <p>
-      Dies ist ein Beispielabschnitt unterhalb des Ribbon-Balkens. 
-      Er dient nur dazu, das Scrollverhalten und die Fixierung des Balkens zu testen. 
-      Wenn du nach unten scrollst, sollte der Balken fixiert bleiben, 
-      während dieser Inhalt normal nach oben vorbeiläuft.
-    </p>
+<!-- ABOUT TEASER -->
+<section id="about-teaser" class="about-teaser">
+  <div class="about-teaser__inner">
 
-    <div class="next-section__grid">
-      <div class="card">Beispiel 1</div>
-      <div class="card">Beispiel 2</div>
-      <div class="card">Beispiel 3</div>
-      <div class="card">Beispiel 4</div>
-      <div class="card">Beispiel 5</div>
-      <div class="card">Beispiel 6</div>
+    <!-- Bühne: hält Höhe, zentriert den Text; Bilder liegen absolut darüber -->
+    <div class="about-teaser__stage">
+      <!-- Bilder -->
+      <div class="about-teaser__photos">
+        <figure class="about-teaser__item" data-end="-400px,-520px">
+            <img src="img/about-teaser/bild-1.jpg" alt="">
+        </figure>
+        <figure class="about-teaser__item" data-end="550px,-200px">
+            <img src="img/about-teaser/bild-3.jpg" alt="">
+        </figure>
+        <figure class="about-teaser__item" data-end="355px,-380px">
+            <img src="img/about-teaser/bild-2.jpg" alt="">
+        </figure>
+        <figure class="about-teaser__item" data-end="-550px,160px">
+            <img src="img/about-teaser/bild-4.jpg" alt="">
+        </figure>
+        <figure class="about-teaser__item" data-end="280px,50px">
+            <img src="img/about-teaser/bild-5.jpg" alt="">
+        </figure>
+      </div>
+
+      <!-- Text (zentriert in der Stage) -->
+      <div class="about-teaser__content">
+        <h3 class="h2loretta">Hier kommt eine Headline über 2 Zeilen,</h3>
+        <h2>DIE MICH AUF DEN PUNKT BRINGT</h2>
+        <p> Lorem ipsum dolor sit amet consectetur. Ipsum cursus risus libero aenean.
+            Sapien at sed vel elit non eu. Suscipit quam accumsan sed nulla. </p>
+        <a href="#about" class="about-teaser__btn">Discover more</a>
+      </div>
     </div>
+
   </div>
 </section>
-
-</section>
-
 <!-- GSAP -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="js/featured.js"></script>
 
 <script src="js/ribbon.js"></script>
+
+<script src="js/about-teaser.js"></script>
 
   
 

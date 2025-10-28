@@ -126,3 +126,5 @@ window.addEventListener("resize", () => {
   buildTimeline();
   ScrollTrigger.refresh();
 });
+
+
