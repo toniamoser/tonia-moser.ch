@@ -2,7 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  color: #303030;
+  color: #000000;
   overflow-x: clip; /* moderne Browser */
   background-color: #F0EBE6;
 }
@@ -56,6 +56,18 @@ font-weight: 900;
 line-height: 115%;
 letter-spacing: -0.5px;
 text-transform: lowercase;
+}
+
+
+.h3-highlight {
+font-family: Lora;
+font-size: 25px;
+font-style: italic;
+font-weight: 400;
+line-height: normal;
+letter-spacing: -0.5px;
+text-transform: lowercase;
+margin-bottom: 8px;
 }
 
 h4 {
