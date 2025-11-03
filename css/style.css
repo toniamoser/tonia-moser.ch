@@ -90,67 +90,97 @@ letter-spacing: -0.36px;
 }
 
 
-/* ----- NAVIGATION ----- */
-.site-header {
-  position: absolute; /* <-- Wichtig: über dem Hero positionieren */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10; /* Damit sie über der Animation liegt */
-  background: transparent; /* kein weißer Hintergrund */
+/* ===== FOOTER ===== */
+.site-footer{
+  margin-top: 200px;
+  padding-bottom: 50px;
 }
-
-.nav-wrapper {
-  width: 100%;
-  background: none;
-}
-
-.nav-container {
-  max-width: 1380px;
+.site-footer__inner{
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 22px clamp(16px, 4vw, 20px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  padding-inline: min(7vw, 48px);
+  text-align: center;
 }
 
-.brand img {
-  height: clamp(26px, 4vw, 30px);
-  width: auto;
+/* Headline-Container: referenz für Sticker-Position */
+.site-footer__headline{
+  position: relative;
+  display: inline-block;             /* nur so breit wie der Titel */
+  margin: 0 auto;
 }
-nav.primary {
-  display: flex;
-  gap: clamp(12px, 7vw, 40px);
-}
-nav.primary a {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #303030;
-  transition: text-decorations 1s ease;
-}
-nav.primary a:hover { 
-    text-decoration: underline;
+.site-footer__title{
+  /* nutzt deine globalen h1-Styles */
+  margin: 0;
 }
 
-.cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: #303030;
-  font-family: Loretta Display;
-  font-weight: 500;
-  font-style: italic;
-}
-.cta .label {
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 2px;
-}
-.cta .arrow-svg {
-  width: clamp(14px, 2vw, 10px);
+/* Sticker – absolute im Headline-Container */
+.footer-sticker{
+  position: absolute;
+  width: clamp(56px, 7vw, 92px);
   height: auto;
+  opacity: 0;
+  transform: scale(.85);
+  pointer-events: none;
+  will-change: transform, opacity;
 }
-.cta:hover .label { border-bottom-color: #2d2b29cc; }
+
+/* Positionen (bei 1200px wie im Screenshot) */
+.footer-sticker--mail{
+  /* links neben „something …“ */
+  left: -88px;
+  top: 52%;
+  transform: translateY(-50%) rotate(-8deg) scale(.85);
+}
+.footer-sticker--in{
+  /* rechts bei „together.“ */
+  right: 22px;
+  bottom: -30px;
+  transform: rotate(-4deg) scale(.85);
+}
+
+/* Meta-Zeile */
+.site-footer__meta{
+  margin-top: clamp(28px, 5vh, 40px);
+  display: grid;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+.site-footer__meta small{
+  font-family: Epilogue, system-ui, sans-serif;
+  font-size: 14px;
+  letter-spacing: -.2px;
+  color: #000000;
+}
+
+/* „impressum“: gleiche Doppel-Unterstreichung wie oben */
+.footer-underline{
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #000000;
+  font-family: Epilogue, system-ui, sans-serif;
+  font-weight: 700;                  /* bold wie gewünscht */
+  padding-bottom: 10px;              /* Platz für Doppellinie */
+}
+.footer-underline::after{
+  content:"";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 12px;
+  background: url("../img/striche/double-underline_black.svg")
+              no-repeat left bottom / 100% 100%;
+}
+
+/* Responsiv kleine Korrekturen */
+@media (max-width: 900px){
+  .footer-sticker--ig{ left: -44px; top: 54%; }
+  .footer-sticker--in{ right: -44px; bottom: 0; }
+}
+@media (max-width: 600px){
+  .footer-sticker{ width: clamp(44px, 12vw, 72px); }
+  .footer-sticker--ig{ left: -36px; }
+  .footer-sticker--in{ right: -36px; }
+}
