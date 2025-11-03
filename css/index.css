@@ -109,7 +109,7 @@
 }
 
 
-/* Featured */
+/* ========= Featured ========= */
 :root {
   --cream: #F0EBE6;
   --text: #2d2b29;
@@ -136,6 +136,26 @@
   gap: clamp(24px, 5vw, 80px);
   align-items: center;
   color: var(--text);
+}
+
+/* ===== Unterstreichung unter dem h2 ===== */
+.featured__title {
+  position: relative;
+  display: inline-block; /* sorgt dafür, dass Breite = Textbreite */
+  line-height: 1.1;
+}
+
+/* Die eigentliche Linie */
+.featured__title::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;              /* Abstand unter dem Text */
+  width: 100%;               /* exakt Textbreite */
+  height: 12px;              /* Höhe deiner Doppellinie (anpassen falls anderes SVG) */
+  background: url("../img/striche/double-underline_black.svg") no-repeat left bottom / 100% 100%;
+  /* bei Retina ultra-scharf: */
+  image-rendering: -webkit-optimize-contrast;
 }
 
 
@@ -172,6 +192,58 @@
 .featured__img:nth-child(3) {
   z-index: 1;
   transform: scale(0.75) translateY(8vh);
+}
+
+/* --- Unterstreichung Links (unter dem h2) --- */
+.featured__u {
+  display: block;
+   width: 100%;
+  height: 20px;
+  margin-top: 6px;
+  color: var(--text);
+}
+
+#featured-u-path {
+  stroke-width: 2.2; /* etwas feiner */
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+/* --- Sticker im Bildbereich --- */
+.featured__media{ position: relative; } /* hast du schon, nur zur Sicherheit */
+/* Container pro Bild+Sticker */
+.featured__item {
+  position: absolute;
+  inset: 0;
+}
+.featured__sticker {
+  position: absolute;
+  width: clamp(60px, 8vw, 90px);
+  height: auto;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Projekt 1 */
+.featured__item:nth-child(1) .featured__sticker {
+  top: 12%;
+  left: -8%;
+  transform: rotate(-12deg);
+}
+
+/* Projekt 2 */
+.featured__item:nth-child(2) .featured__sticker {
+  bottom: -6%;
+  right: 10%;
+}
+
+/* Projekt 3 */
+.featured__item:nth-child(3) .featured__sticker {
+  top: 65%;
+  left: -4%;
 }
 
 /* Nachfolgende Section */
@@ -269,74 +341,64 @@
 
 
 /* === Ribbon Section === */
-.ribbon {
+/* Basis-Ribbon (deins) */
+.ribbon{
   position: relative;
   width: 100%;
-  margin-top: 6rem; /* Abstand nach Featured Projects */
-  margin-bottom: 6rem;
-  overflow: visible;      /* wichtig: nichts abschneiden */
-  min-height: 0;  
+  margin-block: 7rem;
+  overflow: visible;
+  z-index: 5;
+  left: -20px;
 }
-
-.ribbon__inner {
+.ribbon__inner{
   position: relative;
   width: 120vw;
   transform: rotate(-8deg);
-  border-radius: 14px;
-  background: linear-gradient(90deg, #ffbde0 0%, #fff4a9 100%);
-  overflow: hidden;
-  padding: 0 !important;
-  display: block;
-}
-
-.marquee {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  background: #0E0E0E;
+  padding-block: clamp(8px, 1.5vw, 16px);
   overflow: hidden;
 }
 
-.marquee__track {
- padding: 32px 0px;   /* wichtig für nahtlose Wiederholung */
-  margin: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-  gap: 1rem;               /* Abstand zwischen Text und Stern */
+.marquee{ position:relative; overflow:hidden; }
+.marquee__track{
+  display:inline-flex; align-items:center; white-space:nowrap;
+  gap: clamp(8px, 2vw, 24px);
+  padding-inline: clamp(8px, 1vw, 16px);
   will-change: transform;
 }
 
-/* Text im Ribbon */
-.marquee__track span {
-  font-family: "Loretta Display", serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(16px, 3vw, 32px);
-  color: #fff;
-  white-space: nowrap;
+.marquee__track h3{
+  margin:0;
+  color:#fff;
+}
+.marquee__track .h3-highlight{
+  color:#fff; white-space:nowrap;
 }
 
-/* SVG-Stern */
-.ribbon__star {
-  width: clamp(20px, 3vw, 32px);
-  height: auto;
-  display: inline-block;
+/* Sichtbare Inline-Icons */
+.ribbon .marquee__track .ribbon__icon{
+  display:inline-block !important;
+  position: static !important;
+  opacity: 1 !important;
+  transform: none !important;
+  width: clamp(26px, 3.6vw, 44px) !important;
+  height: auto !important;
+  vertical-align: middle;
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,.25));
 }
 
-/* Mobile Anpassungen */
-@media (max-width: 700px) {
-  .ribbon__inner {
-    height: clamp(48px, 9vw, 80px);
-    transform: rotate(-7deg);
-  }
-  .marquee__track {
-    gap: 2rem;
-  }
-  .marquee__track span {
-    font-size: clamp(18px, 5vw, 32px);
-  }
+/* Falls es noch alte .ribbon__sticker-Regeln gibt: neutralisieren */
+.ribbon .marquee__track .ribbon__sticker{
+  all: unset;                /* löscht alte conflicting Styles */
+  display:inline-block;
+  width: clamp(26px, 3.6vw, 44px);
+  height:auto;
+  vertical-align: middle;
+}
+
+@media (max-width: 800px){
+  .ribbon__inner{ width:130vw; transform: rotate(-7deg); }
+  .marquee__track{ gap: clamp(14px, 4vw, 28px); }
 }
 
 
