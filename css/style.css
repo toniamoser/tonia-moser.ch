@@ -89,6 +89,61 @@ line-height: 160%; /* 24px */
 letter-spacing: -0.36px;
 }
 
+/* ========= NAV ========= */
+.hero__nav{
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: var(--nav-pad);
+}
+.hero__brand img{ height: clamp(22px, 20vw, 44px); }
+.hero__links{
+  display: flex; gap: clamp(18px, 2.5vw, 34px);
+  justify-content: center;
+}
+.hero__links a,
+.hero__cta{
+  color: #F0EBE6; text-decoration: none;
+  font-family: Epilogue; font-weight: 800; letter-spacing: .2px;
+  font-size: clamp(14px, 1.1vw, 16px);
+}
+.hero__cta{ justify-self: end; position: relative; }
+
+/* Doppel-Unterstreichung (SVG) */
+.has-double-underline::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-6px;
+  height: 12px;
+  background: url("../img/striche/double-underline.svg") no-repeat 0 100% / 100% 100%;
+}
+
+
+/* Nav – Dark Theme */
+.hero__nav{
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: clamp(10px, 2.2vw, 18px);
+}
+.hero__brand img{ height: clamp(22px, 20vw, 44px); }
+.hero__links{ display:flex; gap: clamp(18px,2.4vw,34px); justify-content:center; }
+.hero__cta{ justify-self:end; position:relative; }
+
+.nav--dark a,
+.nav--dark .hero__cta{ color:#222; text-decoration:none; font-weight:800; }
+.has-double-underline::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-6px;
+  height:12px;
+  background: url("../img/striche/double-underline_black.svg")
+              no-repeat 0 100% / 100% 100%;
+}
+
 
 /* ===== FOOTER ===== */
 .site-footer{

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customizet - tonia.moser.ch</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project.css">
+
+</head>
+<body>
+    <!-- ===== PROJECT DETAIL: HERO ===== -->
+<header class="project-hero">
+  <!-- Nav dark -->
+  <div class="hero__nav nav--dark">
+    <a class="hero__brand" href="/" aria-label="Startseite">
+      <img src="img/logo_black.svg" alt="Tonia Moser Logo">
+    </a>
+
+    <nav class="hero__links" aria-label="Hauptnavigation">
+      <a href="/about">about</a>
+      <a href="/work">work</a>
+    </nav>
+
+    <a class="hero__cta has-double-underline" href="#contact">contact me</a>
+  </div>
+
+  <!-- Content -->
+  <div class="project-hero__inner">
+    <h3 class="project-hero__eyebrow">
+      <span class="h3-highlight project-hero__client">customizet</span>
+    </h3>
+
+    <h1 class="project-hero__title">
+      ready für dein<br>
+      customized retro-shirt?
+    </h1>
+
+    <!-- Sticker (poppt beim Eintritt) -->
+    <img src="img/stickers/SVG/heart.svg"
+         alt="" class="project-hero__sticker">
+  </div>
+</header>
+
+<!-- PROJECT SHOT (Parallax) -->
+<section class="project-shot" id="project-shot-1">
+  <div class="project-shot__frame">
+    <img src="img/customizet/customizet_website-mockup-mobile-min.jpg"
+         alt="Customizet – Produktansicht"
+         class="project-shot__img" />
+  </div>
+
+    <!-- optional: Deko-Form / Sticker unten rechts -->
+    <img src="img/striche/green-scribble.svg"
+         alt="" aria-hidden="true"
+         class="project-shot__scribble" />
+</section>
+
+<!-- ===== PROJECT: TEXT + 3-STEP PARALLAX ===== -->
+<section class="project-steps" id="project-steps">
+  <div class="project-steps__inner">
+
+    <!-- Copy -->
+    <div class="project-steps__copy">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur sadipscing
+        elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+        aliquyam erat, sed diam voluptua.
+      </p>
+    </div>
+
+    <!-- Cards (3) -->
+    <div class="project-steps__grid">
+      <figure class="project-card" data-step="0">
+        <img src="img/featured1.jpg" alt="" class="project-card__img">
+      </figure>
+
+      <figure class="project-card" data-step="1">
+        <img src="img/featured2.jpg" alt="" class="project-card__img">
+      </figure>
+
+      <figure class="project-card" data-step="2">
+        <img src="img/featured3.jpg" alt="" class="project-card__img">
+      </figure>
+
+        <img src="img/stickers/SVG/fire.svg" alt="" class="project-sticker project-sticker--right" />
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== STATEMENT ===================== -->
+<section class="statement-project">
+  <div class="statement-project__inner">
+    <h2>
+      Statement zum <span class="h2-highlight">Projekt</span> das alles gleich auf einen Punkt bringt. Nicht allzu lang aber mit einer klaren Aussage.
+    </h2>
+  </div>
+</section>
+
+
+<!-- PROJECT FEATURE SHOT -->
+<section class="project-feature" id="project-feature-1">
+  <!-- Bildkarte -->
+  <div class="project-feature__frame">
+    <img
+      src="img/featured3.jpg"
+      alt="Projekt-Feature: Laptop Mockup"
+      class="project-feature__img"
+    />
+  </div>
+
+  <!-- Scribble ÜBER dem Frame (außerhalb, damit nichts gecroppt wird) -->
+  <img
+    src="img/striche/pink-scribble.svg"
+    alt=""
+    aria-hidden="true"
+    class="project-feature__scribble"
+  />
+
+  <!-- Sticker über dem Bild, ragt ein wenig über den Rand -->
+  <img
+    src="img/stickers/SVG/pool.svg"
+    alt=""
+    class="project-feature__sticker"
+  />
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" id="contact">
+  <div class="site-footer__inner">
+    <div class="site-footer__headline">
+      <h1 class="site-footer__title">
+        let’s create<br>
+        something <span class="h1-highlight">great</span><br>
+        together.
+      </h1>
+
+      <!-- Sticker: mail (links am 2. Zeilenblock) -->
+      <img
+        src="img/stickers/SVG/mail.svg"
+        alt="mail"
+        class="footer-sticker footer-sticker--mail"
+      />
+
+      <!-- Sticker: LinkedIn (rechts an der 3. Zeile) -->
+      <img
+        src="img/stickers/SVG/linkedin.svg"
+        alt="LinkedIn"
+        class="footer-sticker footer-sticker--in"
+      />
+    </div>
+
+    <div class="site-footer__meta">
+      <small>© 2025 tonia moser</small>
+      <a href="/impressum" class="footer-underline">impressum</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/project-hero.js" defer></script>
+<script src="js/project-shot.js"></script>
+<script src="js/project-steps.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/project-feature.js"></script>
+
+
+
+
+</body>
+</html>
