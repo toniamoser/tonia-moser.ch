@@ -3,76 +3,78 @@ html, body {
   padding: 0;
   height: 100%;
   color: #303030;
-    overflow-x: clip; /* moderne Browser */
-
+  overflow-x: clip; /* moderne Browser */
+  background-color: #F0EBE6;
 }
 
 h1 {
-font-family: Montserrat;
-font-size: 44px;
+font-family: Epilogue;
+font-size: 70px;
 font-style: normal;
-font-weight: 700;
-line-height: normal;
-text-transform: uppercase;
+font-weight: 900;
+line-height: 100%;
+text-transform: lowercase;
+letter-spacing: -1.4px;
 margin: 0 0 10px 0 
 }
 
-.h1loretta {
-font-family: "Loretta Display";
-font-size: 46px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-text-transform: none;
-}
-
-.italic {
-    font-style: italic;
+.h1-highlight {
+font-family: "Lora";
+font-size: 72px;
+font-style: italic;
+font-weight: 400;
+line-height: 90%;
+text-transform: lowercase;
+letter-spacing: -2.16px;
 }
 
 h2 {
-font-family: Montserrat;
-font-size: 28px;
+font-family: Epilogue;
+font-size: 40px;
 font-style: normal;
-font-weight: 700;
-line-height: normal;
-text-transform: uppercase;
+font-weight: 900;
+line-height: 110%;
+text-transform: lowercase;
 margin: 0 0 10px 0 
 }
 
-.h2loretta {
-font-family: "Loretta Display";
-font-size: 24px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-text-transform: none;
+.h2-highlight {
+font-family: "Lora";
+font-size: 42px;
+font-style: italic;
+font-weight: 400;
+line-height: 95%;
+text-transform: lowercase;
+letter-spacing: -0.84px;
 }
 
 h3 {
-font-family: Montserrat;
-font-size: 22px;
+font-family: Epilogue;
+font-size: 25px;
 font-style: normal;
-font-weight: 700;
-line-height: normal;
-text-transform: uppercase;
+font-weight: 900;
+line-height: 115%;
+letter-spacing: -0.5px;
+text-transform: lowercase;
 }
 
 h4 {
-font-family: Montserrat;
-font-size: 16px;
+font-family: Epilogue;
+font-size: 18px;
 font-style: normal;
-font-weight: 700;
-line-height: normal;
-text-transform: uppercase;
+font-weight: 900;
+line-height: 110%;
+letter-spacing: -0.32px;
+text-transform: lowercase;
 }
 
 p {
-    font-family: Montserrat;
-font-size: 16px;
+font-family: Epilogue;
+font-size: 18px;
 font-style: normal;
 font-weight: 400;
-line-height: 150%; /* 24px */
+line-height: 160%; /* 24px */
+letter-spacing: -0.36px;
 }
 
 

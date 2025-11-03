@@ -1,31 +1,117 @@
-.header-content{
-    position: relative;
-    z-index: 2; /* Damit der Text über dem Finisher liegt */
-    text-align: center;
+/* ========= einfache Variablen ========= */
+:root{
+  --hero-gutter: clamp(16px, 4vw, 24px);   /* Rand rund um die Box */
+  --nav-pad: clamp(12px, 2.5vw, 20px);     /* Navi-Innenabstand */
+  --content-gap-bottom: 64px;              /* Abstand Content zum Bild-Unterrand */
 }
 
-.hero {
-  width: 100%;
-  height: 100vh; /* oder was du brauchst */
-  display: flex;
-  justify-content: center; /* horizontal */
-  align-items: center;     /* vertikal */
-  text-align: center;
-  position: relative; /* falls der Finisher-Effekt positioniert wird */
+/* ========= HERO ========= */
+.hero{
+  background: #F0EBE6;
+  padding: var(--hero-gutter);             /* gleichmäßiger Rand zum Viewport */
 }
 
-.finisher-header {
+/* Box = 100vh - 2*gutter, mit Corner Radius; alles andere liegt darüber */
+.hero__box{
+  position: relative;
+  height: calc(100vh - (2 * var(--hero-gutter)));
+  border-radius: 20px;
+  overflow: hidden;
+  isolation: isolate; /* macht eine eigene Stacking-Context-Ebene -> z-index wird zuverlässig */
+}
+
+/* Hintergrundbild füllt die Box */
+.hero__image{
+  position: absolute;
+  inset: 0;                 /* hier ok, kurz & eindeutig */
   width: 100%;
   height: 100%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  object-fit: cover;
+  z-index: 0;
 }
+
+/* dunkles Overlay via Pseudo-Element – weniger Markup */
+.hero__box::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.42) 0%,
+    rgba(0,0,0,.45) 35%,
+    rgba(0,0,0,.50) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ========= NAV ========= */
+.hero__nav{
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: var(--nav-pad);
+}
+.hero__brand img{ height: clamp(22px, 2.4vw, 32px); }
+.hero__links{
+  display: flex; gap: clamp(18px, 2.5vw, 34px);
+  justify-content: center;
+}
+.hero__links a,
+.hero__cta{
+  color: #F0EBE6; text-decoration: none;
+  font-family: Epilogue; font-weight: 800; letter-spacing: .2px;
+  font-size: clamp(14px, 1.1vw, 16px);
+}
+.hero__cta{ justify-self: end; position: relative; }
+
+/* Doppel-Unterstreichung (SVG) */
+.has-double-underline::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-6px;
+  height: 12px;
+  background: url("../img/striche/double-underline.svg") no-repeat 0 100% / 100% 100%;
+}
+
+/* ========= CONTENT ========= */
+/* unten ausgerichtet, horizontal zentriert, 40px über Bild-Unterkante */
+.hero__content{
+  position: absolute;
+  left: 0; right: 0;
+  bottom: var(--content-gap-bottom);
+  z-index: 2;
+  text-align: center;
+  padding: 0 200px;
+}
+
+.hero__title{
+  color:#F0EBE6;
+  text-shadow: 0 4px 18px rgba(0,0,0,.1);
+  margin: 0;
+  /* nutzt deine globalen h1-Styles */
+}
+
+/* ========= STICKER ========= */
+/* Sticker – KEINE Keyframes, Animation macht JS (Web Animations API) */
+.hero-sticker{
+  position: absolute;   /* Bezug: .hero__box */
+  left: 0; top: 0;
+  width: clamp(56px, 7.5vw, 92px);
+  height: auto;
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+  visibility: hidden;   /* bis Ziel gemessen ist */
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+}
+
 
 /* Featured */
 :root {
-  --cream: #ffffff;
+  --cream: #F0EBE6;
   --text: #2d2b29;
 }
 
@@ -52,13 +138,6 @@
   color: var(--text);
 }
 
-/* Linke Spalte: deine Fonts */
-.h2loretta {
-  margin: 0 0 0.25em 0;
-}
-h2 {
-  margin: 0;
-}
 
 /* Bild-Container */
 .featured__media {

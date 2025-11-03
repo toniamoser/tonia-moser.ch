@@ -8,45 +8,42 @@
     <link rel="stylesheet" href="https://use.typekit.net/kef0fer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <header class="site-header">
-    <div class="nav-wrapper">
-      <div class="nav-container">
+   <!-- ===================== HERO / HEADER ===================== -->
+<!-- ===================== SIMPLE HERO ===================== -->
+<header id="hero" class="hero">
+  <!-- Die Box hat den Corner-Radius und enthält das Bild + Overlay-Inhalte -->
+  <div class="hero__box">
+    <img class="hero__image" src="img/hero.png" alt="Hero background" />
 
-        <!-- Logo -->
-        <a class="brand" href="#" aria-label="Startseite">
-          <img src="img/logo.svg" alt="Tonia Moser Logo" class="logo-svg">
-        </a>
+    <img src="img/stickers/SVG/smiley.svg" alt="" class="hero-sticker" />
 
-        <!-- Hauptnavigation -->
-        <nav class="primary" aria-label="Hauptnavigation">
-          <a href="#about">about</a>
-          <a href="#work">work</a>
-        </nav>
+    <!-- dunkles Overlay (per ::after im CSS, kein extra Element nötig) -->
 
-        <!-- Kontakt-Link -->
-        <a class="cta" href="#contact" aria-label="Kontakt">
-          <span class="label">Contact me</span>
-          <img src="img/contact-arrow.svg" alt="" class="arrow-svg" aria-hidden="true">
-        </a>
-
+    <!-- Navigation (liegt über dem Bild) -->
+    <nav class="hero__nav" aria-label="Primary">
+      <a class="hero__brand" href="/">
+        <img src="img/logo.svg" alt="tonia moser" />
+      </a>
+      <div class="hero__links">
+        <a href="#about">about</a>
+        <a href="#work">work</a>
       </div>
-    </div>
-  </header>
+      <a class="hero__cta has-double-underline" href="#contact">contact me</a>
+    </nav>
 
-<section class="hero">
-    <div class="header finisher-header">
-    <div class="header-content">
-         <h1 class="h1loretta">Wo <span class="italic">Ideen</span> Form annehmen</h1>
-         <h1>Und Design Bedeutung bekommt</h1>
+    <!-- Content (zentriert, aber am unteren Rand; 40px Abstand zum Bild-Unterrand) -->
+    <div class="hero__content">
+      <h1 class="hero__title">
+        wo ideen form annehmen und design <span class="h1-highlight">bedeutung</span> bekommt
+      </h1>
     </div>
   </div>
-  </section>
+</header>
 
   <section id="featured" class="featured">
   <div class="featured__pin">
@@ -131,6 +128,8 @@
 <!-- GSAP -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/hero.js"></script>
+
 <script src="js/featured.js"></script>
 
 <script src="js/ribbon.js"></script>
