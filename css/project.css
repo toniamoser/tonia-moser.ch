@@ -191,72 +191,75 @@
   }
 }
 
-/* ==================== STATEMENT SECTION ==================== */
-.statement-project {
-  padding: clamp(60px, 12vh, 200px) 0;
-  margin-top: 64px;
-  margin-bottom: 64px;
-}
-
-.statement-project__inner {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 clamp(24px, 32vw, 500px);
+/* === STATEMENT + FEATURE (Viewport, Bild mit paddings) === */
+.statement-feature {
   position: relative;
+  height: 100vh;
+  padding: clamp(16px, 4vw, 40px);
+  overflow: visible;
 }
 
-
-/* ===== Project Feature Shot ===== */
-.project-feature{
+.statement-feature__inner {
   position: relative;
-  padding: clamp(16px, 4vw, 24px);
-  overflow: visible;                             /* wichtig für Überlagerungen */
+  width: 100%;
+  height: 100%;
 }
 
-/* Karte mit Bild */
-.project-feature__frame{
-  position: relative;
-  height: clamp(340px, 62vh, 560px);
-  border-radius: 20px;
-  overflow: hidden;                              /* cropt NUR das Bild */
-}
-.project-feature__img{
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
-
-/* SCRIBBLE – über dem Container, außerhalb platziert */
-.project-feature__scribble{
+/* Statement — bleibt gleich, SCHMAL in der Mitte */
+.statement-feature__text {
   position: absolute;
-  z-index: 3;                                    /* über Frame */
-  left: clamp(-34px, -3vw, -20px);
-  top: clamp(-28px, -2vw, -10px);
-  width: clamp(140px, 18vw, 240px);
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(520px, 80%);
+}
+
+/* MEDIA → nimmt voll Platz, aber mit max-Size */
+.statement-feature__media {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+
+  /* gleichmäßig Abstand durch padding */
+  padding: clamp(16px, 4vw, 60px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.statement-feature__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+
+  /* Max dimension → wie Start-Hero */
+  max-width: 1600px;
+  max-height: 90vh;
+}
+
+/* Sticker an rechter Kante */
+.statement-feature__sticker {
+  position: absolute;
+  right: clamp(12px, 3vw, 30px);
+  bottom: clamp(12px, -5vw, 30px);
+  width: clamp(70px, 10vw, 120px);
+  opacity: 0;
+  transform: scale(.85);
+  z-index: 4;
+}
+
+/* Scribble */
+.statement-feature__scribble {
+  position: absolute;
+  left: clamp(-64px, -8vw, -24px);
+  top: clamp(-18px, -2.5vw, -6px);
+  width: clamp(140px, 20vw, 260px);
   opacity: 1;
   pointer-events: none;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,.12));
-  transform: rotate(-8deg);
-  will-change: transform, opacity;
-}
-
-/* STICKER – sitzt am Frame, ragt leicht über */
-.project-feature__sticker{
-  position: absolute;
   z-index: 3;
-  right: clamp(10px, 3vw, 28px);
-  bottom: clamp(-16px, -1.4vw, -6px);           /* negativ = ragt über Rand */
-  width: clamp(68px, 9vw, 110px);
-  pointer-events: none;
-  will-change: transform, opacity;
-  opacity: 0;                                    /* Startzustand für Pop-in */
-  transform: scale(.85);
 }
 
-@media (max-width: 900px){
-  .project-feature__scribble{
-    left: clamp(-24px, -4vw, -10px);
-    top: clamp(-18px, -3vw, -6px);
-    width: clamp(120px, 24vw, 200px);
-  }
-}

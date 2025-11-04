@@ -96,42 +96,78 @@
   </div>
 </section>
 
-<!-- ===================== STATEMENT ===================== -->
-<section class="statement-project">
-  <div class="statement-project__inner">
-    <h2>
-      Statement zum <span class="h2-highlight">Projekt</span> das alles gleich auf einen Punkt bringt. Nicht allzu lang aber mit einer klaren Aussage.
-    </h2>
-  </div>
-</section>
+<!-- STATEMENT + FEATURE (pinned, image slides in later) -->
+<section id="statement-feature" class="statement-feature">
+  <div class="statement-feature__inner">
+    <!-- Statement -->
+    <div class="statement-feature__text">
+      <h2 class="statement-feature__title">
+        Statement zum <span class="h2-highlight">Projekt</span> das alles gleich auf einen Punkt bringt. Nicht allzu lang aber mit einer klaren Aussage.
+      </h2>
+    </div>
 
-
-<!-- PROJECT FEATURE SHOT -->
-<section class="project-feature" id="project-feature-1">
-  <!-- Bildkarte -->
-  <div class="project-feature__frame">
+    <!-- Scribble (sichtbar ab Start) -->
     <img
-      src="img/featured3.jpg"
-      alt="Projekt-Feature: Laptop Mockup"
-      class="project-feature__img"
+      src="img/striche/pink-scribble.svg"
+      alt=""
+      aria-hidden="true"
+      class="statement-feature__scribble"
+    />
+
+    <!-- Bild (fährt erst später rein) -->
+    <div class="statement-feature__media">
+      <img
+        src="img/featured3.jpg"
+        alt="Feature Visual"
+        class="statement-feature__img"
+      />
+    </div>
+
+    <!-- Sticker (ploppt nach dem Bild) -->
+    <img
+      src="img/stickers/SVG/pool.svg"
+      alt=""
+      class="statement-feature__sticker"
     />
   </div>
-
-  <!-- Scribble ÜBER dem Frame (außerhalb, damit nichts gecroppt wird) -->
-  <img
-    src="img/striche/pink-scribble.svg"
-    alt=""
-    aria-hidden="true"
-    class="project-feature__scribble"
-  />
-
-  <!-- Sticker über dem Bild, ragt ein wenig über den Rand -->
-  <img
-    src="img/stickers/SVG/pool.svg"
-    alt=""
-    class="project-feature__sticker"
-  />
 </section>
+
+
+<!-- MORE COOL STUFF -->
+<section id="more-projects" class="more-projects">
+  <div class="more-projects__stack">
+
+    <!-- Headline über dem Bild-Stack -->
+    <h1 class="more-projects__title">
+      more <span class="h1-highlight">cool</span> stuff
+      <span class="double-underline" aria-hidden="true"></span>
+    </h1>
+
+    <!-- Hintergrund-Scribble (hinter den Karten) -->
+    <img src="img/striche/green-scribble.svg" alt="" aria-hidden="true" class="more-projects__scribble">
+
+    <!-- Smiley-Sticker (vorne, ploppt) -->
+    <img src="img/stickers/SVG/smiley.svg" alt="" class="more-projects__sticker">
+
+    <!-- Linke (kleinere) Card -->
+    <a class="mp-card mp-card--left" href="/project-a" aria-label="Projekt A">
+      <div class="mp-card__media">
+        <img src="img/featured3.jpg" alt="Vorschau vom Projektnamen A">
+      </div>
+      <div class="mp-card__label">vorschau vom<br> projektnamen</div>
+    </a>
+
+    <!-- Rechte (größere) Card -->
+    <a class="mp-card mp-card--right" href="/project-b" aria-label="Projekt B">
+      <div class="mp-card__media">
+        <img src="img/featured2.jpg" alt="Vorschau vom Projektnamen B">
+      </div>
+      <div class="mp-card__label">vorschau vom<br> projektnamen</div>
+    </a>
+
+  </div>
+</section>
+
 
 <!-- ===== FOOTER ===== -->
 <footer class="site-footer" id="contact">
@@ -171,7 +207,8 @@
 <script src="js/project-shot.js"></script>
 <script src="js/project-steps.js"></script>
 <script src="js/footer.js"></script>
-<script src="js/project-feature.js"></script>
+<script src="js/statement-feature.js"></script>
+<script src="js/more-projects.js" defer></script>
 
 
 
