@@ -1,0 +1,121 @@
+.about-nav{
+  padding: clamp(16px, 4vw, 24px);
+  position: relative;
+}
+
+/* === ABOUT HERO ========================================================== */
+.about-hero{
+  position: relative;
+  padding-block: clamp(56px, 10vh, 100px);
+  overflow: visible;
+}
+.about-hero__inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-inline: min(8vw, 64px);
+  text-align: center;
+}
+
+/* H1 nutzt deine globalen h1-Styles */
+.about-hero__title{
+  margin: 0 0 clamp(28px, 6vh, 40px) 0;
+}
+
+/* Bühne hält den Frame zentral */
+.about-hero__stage{
+  position: relative;
+  display: grid;
+  place-items: center;
+   margin-top: -108px;
+}
+
+/* Der Frame: runde Ecken, hidden overflow, fester Bühnenplatz */
+.about-hero__frame{
+background: #e8e2db;
+  position: relative;
+  width: min(520px, 78vw);
+  aspect-ratio: 4 / 5;                /* angenehmes Portrait-Format */
+  border-radius: 20px;
+  overflow: hidden;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+/* Die einzelnen Bilder werden absolut gestapelt */
+.about-hero__frame img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;                         /* werden per JS geblendet */
+  transition: opacity .28s ease-out;  /* smoother crossfade */
+}
+
+/* Sticker */
+.about-hero__sticker{
+  position: absolute;
+  right: clamp(200px, 5vw, 400px);
+  bottom: clamp(68px, 12vw, 200px);
+  width: clamp(90px, 14vw, 140px);
+  transform: rotate(-6deg) scale(.85);
+  opacity: 0;                         /* ploppt per JS */
+  pointer-events: none;
+}
+
+/* Pinned/Scroll-Bereich darunter etwas Luft geben */
+@media (max-width: 700px){
+  .about-hero__frame{
+    width: min(82vw, 460px);
+    aspect-ratio: 3 / 4;
+  }
+}
+
+
+/* ===== ABOUT TEXT ===== */
+.about-text{
+  position: relative;
+  padding-block: clamp(64px, 12vh, 140px);
+  overflow: visible;
+}
+
+.about-text__inner{
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: min(8vw, 64px);
+}
+
+/* Scribble links am Rand – leicht überstehend */
+.about-text__scribble{
+  position: absolute;
+  left: max(-8vw, -95px);  /* hängt etwas raus */
+  top: clamp(-170px, -21vh, 0px);
+  width: clamp(180px, 26vw, 360px);
+  pointer-events: none;      /* blockiert keinen Hover */
+  z-index: 0;
+}
+
+/* Container für die H2-Blöcke */
+.about-text__blocks{
+  position: relative;
+  z-index: 1;                /* über der Deko */
+  max-width: 760px;          /* schmalere Spaltenbreite wie im Shot */
+  margin-inline: auto;       /* <— zentriert */
+}
+
+/* Abstand zwischen den zwei Aussagen */
+.about-text__block{
+  margin: 0 0 clamp(40px, 10vh, 72px) 0;
+}
+
+/* Mobile: Breite entspannen, Scribble kleiner */
+@media (max-width: 900px){
+  .about-text__blocks{
+    max-width: 100%;
+  }
+  .about-text__scribble{
+    left: max(-22vw, -120px);
+    width: clamp(160px, 40vw, 280px);
+  }
+}

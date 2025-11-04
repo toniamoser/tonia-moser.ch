@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About me</title>
+
+     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+<header class="about-nav">
+    <div class="hero__nav nav--dark">
+    <a class="hero__brand" href="/" aria-label="Startseite">
+      <img src="img/logo_black.svg" alt="Tonia Moser Logo">
+    </a>
+
+    <nav class="hero__links" aria-label="Hauptnavigation">
+      <a href="/about">about</a>
+      <a href="/work">work</a>
+    </nav>
+
+    <a class="hero__cta has-double-underline" href="#contact">contact me</a>
+    </div>
+</header>
+ 
+<!-- ABOUT: HERO -->
+<section id="about-hero" class="about-hero">
+  <div class="about-hero__inner">
+    <h1 class="about-hero__title">
+      ein paar <span class="h1-highlight">Dinge</span><br> über mich.
+    </h1>
+
+    <!-- Bild-Stage -->
+    <div class="about-hero__stage">
+      <!-- der Bild-Frame; Bilder werden per JS hineingeladen -->
+      <div class="about-hero__frame" aria-label="Portrait Slideshow" role="img"></div>
+
+      <!-- Sticker (ploppt) -->
+      <img src="img/stickers/SVG/good-vibes.svg"
+           alt=""
+           class="about-hero__sticker">
+    </div>
+  </div>
+</section>
+
+
+<!-- ABOUT: TEXT SECTION -->
+<section id="about-text" class="about-text">
+  <div class="about-text__inner">
+
+    <!-- linkes Rand-Scribble (Deko) -->
+    <img
+      src="img/striche/pink-scribble2.svg"
+      alt=""
+      class="about-text__scribble"
+      aria-hidden="true"
+    />
+
+    <!-- Textblöcke -->
+    <div class="about-text__blocks">
+      <h2 class="about-text__block">
+        nach meiner ausbildung zur polygrafin habe ich gemerkt,
+        dass gestaltung für mich <span class="h2-highlight">mehr ist als ästhetik.</span>
+      </h2>
+
+      <h2 class="about-text__block">
+        ich arbeite seit 5 jahren in einer agentur, studiere multimedia production
+        und bewege mich zwischen design, konzept und kommunikation.
+      </h2>
+    </div>
+
+  </div>
+</section>
+    
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/about-hero.js"></script>
+<script src="js/about-text.js"></script>
+
+</body>
+</html>
