@@ -109,6 +109,17 @@ background: #e8e2db;
   margin: 0 0 clamp(40px, 10vh, 72px) 0;
 }
 
+.about-text__sticker{
+  position: absolute;
+  right: clamp(64px, 18vw, 72px);
+  bottom: clamp(48px, 8vw, 82px);
+  width: clamp(58px, 8vw, 98px);
+  transform: rotate(-6deg) scale(.85);
+  opacity: 0;                      /* poppt per JS */
+  pointer-events: none;
+  z-index: 2;
+}
+
 /* Mobile: Breite entspannen, Scribble kleiner */
 @media (max-width: 900px){
   .about-text__blocks{
@@ -118,4 +129,263 @@ background: #e8e2db;
     left: max(-22vw, -120px);
     width: clamp(160px, 40vw, 280px);
   }
+  .about-text__sticker{
+    right: 0;
+    bottom: -6px;
+    width: clamp(48px, 12vw, 80px);
+  }
+}
+
+
+/* ================================
+   WHAT I DO — Full CSS (clean)
+=================================== */
+
+/* Grundlayout + Gutter */
+.wim{
+  padding-block: clamp(96px, 14vh, 160px);
+  --wim-gutter: clamp(48px, 12vw, 250px); /* linker+rechter Rand für den Track */
+}
+
+/* Titel normal im Flow (kein sticky/fixed) */
+.wim__title{
+  position: relative;
+  top: 0;
+  text-align: center;
+  margin: 0 0 clamp(42px, 8vh, 64px) 0;
+}
+
+/* Doppellinie unter dem Titel (oben) */
+.wim__title .wim__underline{
+  position: relative;
+  display: block;
+  width: clamp(160px, 22vw, 240px);
+  height: 12px;
+  margin: 10px auto 0;
+  background: url("../img/striche/double-underline_black.svg")
+              no-repeat 50% 100% / 100% 100%;
+}
+
+/* Während die Section gepinnt ist:
+   – echte 100vh-Bühne
+   – Title + Track vertikal zentriert */
+.wim.wim--pinned{
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;  /* Titel, darunter Viewport/Track */
+  align-content: center;
+  justify-items: center;
+  padding-block: 0;              /* kein extra vert. Padding in der Pin-Phase */
+}
+
+/* === Viewport (Bühne für den Track) === */
+.wim__viewport{
+  position: relative;
+  width: 100vw;                 /* über max-width hinaus */
+  left: 50%;
+  transform: translateX(-50%);
+  min-height: clamp(320px, 48vh, 520px);
+  overflow: visible;
+  z-index: 2;
+}
+
+/* === Horizontaler Track === */
+.wim__track{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+  gap: clamp(16px, 3vw, 28px);
+  padding-left: var(--wim-gutter);
+  padding-right: var(--wim-gutter);
+}
+.wim__track::after{
+  content: "";
+  flex: 0 0 var(--wim-gutter); /* rechter Abschluss = linker Gutter */
+}
+
+/* ========== CARD BASIS ========== */
+.wcard{
+  --w-open:   clamp(350px, 40vw, 700px);
+  --w-closed: clamp(260px, 32vw, 360px);
+  --r: 20px;
+
+  flex: 0 0 var(--w-closed);
+  height: clamp(220px, 12vh, 480px);   /* stabile, angenehme Höhe */
+  border-radius: var(--r);
+
+  background: #E9F895;
+  padding: clamp(44px, 10vw, 48px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* closed → zentriert */
+  align-items: center;
+  text-align: center;
+
+  overflow: hidden;
+  transition:
+    flex-basis .55s cubic-bezier(.22,.9,.34,1.2),
+    background .35s ease;
+}
+
+/* Offener Zustand: deutlich breiter, linker Content-Align */
+.wcard.is-open{
+  flex-basis: var(--w-open);
+  background: #EA68CF;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  color: #F0EBE6; /* Textfarbe für offenen Zustand */
+}
+
+/* ======= HEAD / TITLE / UNDERLINE in der Card ======= */
+.wcard__head{
+  width: 100%;
+}
+
+/* Titel */
+.wcard__title{
+  margin: 0;
+  width: 100%;
+}
+
+/* Zuverlässige, volle Inhaltsbreite via Inline-SVG (im HTML) */
+.wcard__underline{
+  display: block;
+  width: 100%;
+  height: 12px;
+  margin-top: 10px;
+  color: var(--underline, #000); /* stroke="currentColor" im SVG nutzt das */
+}
+
+/* closed = schwarz, open = weiß */
+.wcard{         --underline: #000; }
+.wcard.is-open{ --underline: #F0EBE6; }
+
+/* Body (Text) – zu/auf */
+.wcard__body{
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  margin-top: clamp(10px, 2vh, 16px);
+  transition: opacity .35s ease, max-height .35s ease;
+}
+.wcard.is-open .wcard__body{
+  opacity: 1;
+  max-height: 40vh; /* „auto“-Ersatz für animiertes Aufklappen */
+}
+
+/* Sticker (ploppt, wenn Card aktiv wird; via JS gesteuert) */
+.wcard {
+  position: relative;   /* wichtig -> Bezugsraum */
+}
+
+.wcard__sticker {
+  position: absolute;
+  opacity: 0;
+  transform: rotate(-6deg) scale(.85);
+  pointer-events: none;
+  transition: transform .4s ease, opacity .4s ease;
+}
+
+/* Overlay über dem Track – schneidet nichts ab */
+.wim__overlay{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6; /* über Cards */
+}
+
+
+/* ===== Principle Statement ===== */
+.principle{
+  position: relative;
+  padding-block: clamp(64px, 12vh, 140px);
+  overflow: visible;
+}
+
+.principle__inner{
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-inline: min(7vw, 48px);
+}
+
+.principle__text{
+  max-width: 560px;              /* angenehme Zeilenlänge */
+  margin: 0 auto;                /* mittig */
+  text-align: left;
+  transform: translateY(12px);
+  opacity: 0;
+  transition: transform .55s ease, opacity .55s ease;
+}
+
+.principle.is-inview .principle__text{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Sticker rechts neben dem Text-Block */
+.principle__sticker{
+  position: absolute;
+  right: clamp(350px, 5vw, 400px);
+  top: clamp(34%, 42vh, 46%);   /* ungefähr mittig am Textblock */
+  transform: scale(.85) rotate(-6deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Scribble unten rechts */
+.principle__scribble{
+  position: absolute;
+  right: 1100px;
+  bottom: -350px;
+  width: clamp(140px, 20vw, 280px);
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 900px){
+  .principle__text{ max-width: 92ch; }
+  .principle__sticker{
+    right: clamp(16px, 6vw, 48px);
+    top: auto;
+    bottom: clamp(18px, 8vh, 40px);
+  }
+}
+
+/* Abschnitt unter dem Statement */
+.principle-media {
+  position: relative;
+  padding-block: clamp(28px, 7vh, 72px);
+  overflow: hidden; /* ← WICHTIG */
+  min-height: 60vh;
+}
+
+.principle-media__inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-inline: min(7vw, 48px);
+}
+
+.principle-media__frame{
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  will-change: transform;
+  visibility: visible !important;
+}
+
+.principle-media__img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* PRESTATE: absolut zuverlässig unsichtbar & off-screen */
+.principle-media__frame.pm-pre {
+  visibility: hidden !important;
+  transform: translateX(-200%) !important;
 }

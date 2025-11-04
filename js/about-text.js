@@ -13,3 +13,24 @@ gsap.registerPlugin(ScrollTrigger);
     );
   });
 })();
+
+// js/about-text-sticker.js
+gsap.registerPlugin(ScrollTrigger);
+
+(() => {
+  const sticker = document.querySelector("#about-text .about-text__sticker");
+  if (!sticker) return;
+
+  gsap.fromTo(sticker,
+    { opacity: 0, scale: 0.8, y: 8 },
+    {
+      opacity: 1, scale: 1, y: 0,
+      duration: 0.6, delay: 0.65, ease: "back.out(1.8)",
+      scrollTrigger: {
+        trigger: "#about-text .about-text__blocks",
+        start: "top 75%",   // erst wenn der Text gut im Viewport ist
+        once: true
+      }
+    }
+  );
+})();
