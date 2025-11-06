@@ -44,7 +44,7 @@
 .project-hero__sticker {
   position: absolute;
   right: clamp(0px, 28vw, 200px);
-  top: clamp(40px, 10vh, 150px);
+  top: clamp(20px, 3vh, 100px);
   width: clamp(62px, 7.5vw, 96px);
   opacity: 0;            /* Start unsichtbar */
   transform: scale(0.75) rotate(-10deg);
@@ -57,7 +57,7 @@
   .project-hero__inner{ margin-top: 10vh; }
   .project-hero__sticker{
     right: clamp(8px, 6vw, 60px);
-    top: clamp(120px, 24vh, 220px);
+    top: clamp(80px, 2vh, 220px);
   }
 }
 
