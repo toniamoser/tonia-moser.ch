@@ -10,11 +10,13 @@ gsap.registerPlugin(ScrollTrigger);
 
   // 1) Hier deine 5 Bilder eintragen (Reihenfolge = Reihenfolge im Scroll)
   const IMAGES = [
-    'img/about-teaser/bild-1.jpg',
-    'img/about-teaser/bild-2.jpg',
-    'img/about-teaser/bild-3.jpg',
-    'img/about-teaser/bild-4.jpg',
-    'img/about-teaser/bild-5.jpg',
+    'img/me/me-1.jpg',
+    'img/me/me-2.jpg',
+    'img/me/me-3.jpg',
+    'img/me/me-4.jpg',
+    'img/me/me-5.jpg',
+    'img/me/me-6.jpg',
+
   ];
 
   // Bilder in den Frame legen
