@@ -17,8 +17,9 @@ const imageFallback = itemEls.length ? null : gsap.utils.toArray(".featured__img
 
 const projects = [
   { eyebrow: "Branding & Website", title: "CUSTOMIZET" },
-  { eyebrow: "Editorial & Web",    title: "PALM GARDENS" },
-  { eyebrow: "Identity & Product", title: "STUDIO RAIN" }
+  { eyebrow: "konzept & design", title: "lost in my 20's" },
+  { eyebrow: "konzept & ux-design",    title: "Krimidinner" }
+
 ];
 
 /* ---- Parameter ---- */

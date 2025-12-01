@@ -9,7 +9,8 @@ Lieber weniger Projekte im Portfolio abbilden, dafür diese genauer beschreiben 
 # Schwierigkeiten
 Platzierung der overlapping Elementen
 Fehler der Scrolleffekte waren für mich fast unmöglich herauszufinden wieso und wie ichs fixe
-Genug Inhalt abbilden aber nicht überhäufen
+Genug Inhalt abbilden aber nicht überhäufen$
+extrem viel zeit in die erstellung von coolen mockups
 
 # Ressourcen
 •	GSAP & ScrollTrigger Dokumentation
