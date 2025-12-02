@@ -303,6 +303,7 @@ background: #e8e2db;
   position: relative;
   padding-block: clamp(64px, 12vh, 140px);
   overflow: visible;
+  padding-bottom: 200px;
 }
 
 .principle__inner{

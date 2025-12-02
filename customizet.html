@@ -27,7 +27,11 @@
       <a href="work.html">work</a>
     </nav>
 
-    <a class="hero__cta has-double-underline" href="#contact">contact me</a>
+    <a class="hero__cta has-double-underline contact-link"
+      data-user="tonia.moser"
+      data-domain="hotmail.com">
+      contact me
+      </a>
   </div>
 
   <!-- Content -->
@@ -175,6 +179,7 @@
 <!-- ===== FOOTER ===== -->
 <footer class="site-footer" id="contact">
   <div class="site-footer__inner">
+    
     <div class="site-footer__headline">
       <h1 class="site-footer__title">
         let’s create<br>
@@ -182,25 +187,29 @@
         together.
       </h1>
 
-      <!-- Sticker: mail (links am 2. Zeilenblock) -->
-      <img
-        src="img/stickers/SVG/mail.svg"
-        alt="mail"
-        class="footer-sticker footer-sticker--mail"
-      />
+      <!-- MAIL-STICKER (als Link, mit Spam-Schutz über data-Attribute) -->
+      <a class="footer-sticker footer-sticker--mail contact-link-footer"
+         data-user="tonia.moser"
+         data-domain="hotmail.com"
+         aria-label="E-Mail senden">
+        <img src="img/stickers/SVG/mail.svg" alt="">
+      </a>
 
-      <!-- Sticker: LinkedIn (rechts an der 3. Zeile) -->
-      <img
-        src="img/stickers/SVG/linkedin.svg"
-        alt="LinkedIn"
-        class="footer-sticker footer-sticker--in"
-      />
+      <!-- LinkedIn Sticker -->
+      <a class="footer-sticker footer-sticker--in"
+         href="https://linkedin.com/in/tonia-moser-22849a22a" 
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="LinkedIn Profil">
+        <img src="img/stickers/SVG/linkedin.svg" alt="LinkedIn">
+      </a>
     </div>
 
     <div class="site-footer__meta">
       <small>© 2025 tonia moser</small>
-      <a href="/impressum" class="footer-underline">impressum</a>
+      <a href="impressum.html" class="footer-underline">impressum</a>
     </div>
+
   </div>
 </footer>
 
@@ -212,6 +221,8 @@
 <script src="js/footer.js"></script>
 <script src="js/statement-feature.js"></script>
 <script src="js/more-projects.js" defer></script>
+<script src="js/mail.js"></script>
+
 
 
 
