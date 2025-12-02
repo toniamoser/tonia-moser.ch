@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work – Projekte</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/work.css">
+    <link rel="stylesheet" href="css/about.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<header class="about-nav">
+  <div class="hero__nav nav--dark">
+    <a class="hero__brand" href="/" aria-label="Startseite">
+      <img src="img/logo_black.svg" alt="Tonia Moser Logo">
+    </a>
+
+    <nav class="hero__links" aria-label="Hauptnavigation">
+      <a href="about.html">about</a>
+      <a href="work.html">work</a>
+    </nav>
+
+    <a class="hero__cta has-double-underline" href="#contact">contact me</a>
+  </div>
+</header>
+
+<!-- PROJECT INTRO -->
+<section class="projects-intro">
+  <div class="projects-intro__inner">
+    <h1 class="projects-intro__title">
+      projekte,<br>
+      die ich <span class="h1-highlight">liebe</span>
+    </h1>
+
+    <!-- Sticker beim Titel -->
+    <img
+      src="img/stickers/SVG/picture.svg"
+      alt=""
+      class="projects-intro__sticker sticker-pop"
+    >
+  </div>
+</section>
+
+<!-- PROJECT GRID -->
+<section id="projects" class="projects">
+  <div class="projects__inner">
+
+    <div class="projects__grid">
+
+  <!-- Linke Spalte: zwei kleinere Tiles übereinander -->
+  <div class="projects__col-left">
+    <!-- Tile 1 -->
+    <a href="customizet.html" class="project-tile project-tile--small">
+      <img
+        src="img/customizet/customizet_logo-min.jpg"
+        alt="Customizet – Branding & Website"
+        class="project-tile__image"
+      >
+      <div class="project-tile__overlay">
+        <h3 class="project-tile__title">
+          ready für dein<br> customized retro-shirt?
+        </h3>
+      </div>
+    </a>
+
+    <!-- Tile 2 -->
+    <a href="krimidinner.html" class="project-tile project-tile--small">
+      <img
+        src="img/krimidinner/krimidinner_vorschaubild.jpg"
+        alt="Projekt 2"
+        class="project-tile__image"
+      >
+      <div class="project-tile__overlay">
+        <h3 class="project-tile__title">ein interaktives krimidinner<br> als weihnachtsgeschenk</h3>
+      </div>
+    </a>
+  </div>
+
+  <!-- Rechte Spalte: ein großes Tile, so hoch wie beide links zusammen -->
+  <div class="projects__col-right">
+    <a href="lost-in-my-20's.html" class="project-tile project-tile--large">
+      <img
+        src="img/lostinmy20s/Lost-in-my-20's_titelbild.jpg"
+        alt="Projekt 3"
+        class="project-tile__image"
+      >
+      <div class="project-tile__overlay">
+        <h3 class="project-tile__title">Lost in my<br> 20's</h3>
+      </div>
+
+      <img
+        src="img/stickers/SVG/flame.svg"
+        alt=""
+        class="project-tile__sticker sticker-pop"
+      >
+    </a>
+  </div>
+
+</div>
+
+  </div>
+
+  <!-- Scribble-Deko unten links -->
+  <img
+    src="img/scribbles/pink-scribble.svg"
+    alt=""
+    class="projects__scribble"
+  >
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" id="contact">
+  <div class="site-footer__inner">
+    <div class="site-footer__headline">
+      <h1 class="site-footer__title">
+        let’s create<br>
+        something <span class="h1-highlight">great</span><br>
+        together.
+      </h1>
+
+      <!-- Sticker: mail (links an Zeile 2) -->
+      <img
+        src="img/stickers/SVG/mail.svg"
+        alt="mail"
+        class="footer-sticker footer-sticker--mail"
+      />
+
+      <!-- Sticker: LinkedIn (rechts an Zeile 3) -->
+      <img
+        src="img/stickers/SVG/linkedin.svg"
+        alt="LinkedIn"
+        class="footer-sticker footer-sticker--in"
+      />
+    </div>
+
+    <div class="site-footer__meta">
+      <small>© 2025 tonia moser</small>
+      <a href="/impressum" class="footer-underline">impressum</a>
+    </div>
+  </div>
+</footer>
+
+<!-- GSAP + SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<!-- Deine bestehenden Skripte (einige brauchst du hier evtl. nicht, aber ich lasse sie wie bei dir) -->
+<script src="js/project-hero.js" defer></script>
+<script src="js/project-shot.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/statement-feature.js"></script>
+<script src="js/more-projects.js" defer></script>
+
+<!-- Übersicht-spezifisch: Sticker / Hover etc. -->
+<script src="js/projects-overview.js"></script>
+
+</body>
+</html>

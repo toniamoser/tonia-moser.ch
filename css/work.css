@@ -1,0 +1,155 @@
+/* ===== PROJECT INTRO (Headline) ===== */
+
+.projects-intro {
+  padding-block: clamp(72px, 12vh, 120px);
+}
+
+.projects-intro__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: min(8vw, 64px);
+  position: relative;
+  text-align: center;
+
+}
+
+.projects-intro__title {
+  margin: 0;
+}
+
+/* Sticker beim Titel */
+.projects-intro__sticker {
+  position: absolute;
+  width: clamp(70px, 9vw, 110px);
+  right: clamp(80px, 25vw, 440px);
+  top: clamp(10px, 2vh, 30px);
+  transform: rotate(-8deg) scale(.9);
+  opacity: 0; /* wird per JS eingeblendet */
+  pointer-events: none;
+}
+
+/* ===== PROJECTS GRID NEU ===== */
+
+.projects {
+  position: relative;
+}
+
+.projects__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: min(8vw, 64px);
+}
+
+/* Zwei Spalten, gemeinsame kontrollierte Höhe */
+.projects__grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+}
+
+/* Linke Spalte: 2 Reihen, gleiche Höhe */
+.projects__col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  flex: 1 1 50%;
+}
+
+.projects__col-left img {
+  aspect-ratio: 16 / 9;
+}
+
+/* Rechte Spalte: ein großes Tile, füllt die volle Höhe */
+.projects__col-right {
+    flex: 1 1 50%;
+    display: flex;}
+
+.projects__col-right .project-tile {
+  width: 100%;
+  /* Höhe kommt per JS, deshalb hier KEINE aspect-ratio/height setzen */
+}
+
+
+/* ===== Tiles ===== */
+
+.project-tile {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  height: 100%;                /* füllt seine Zelle */
+}
+
+/* Bilder füllen den Rahmen */
+.project-tile__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay für Hover */
+.project-tile__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(0,0,0,.15), rgba(0,0,0,.6));
+  opacity: 0;
+  transition: opacity .35s ease;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.project-tile__title {
+  margin: 0;
+  color: #F0EBE6;
+  font-weight: 700;
+}
+
+.project-tile:hover .project-tile__overlay {
+  opacity: 1;
+}
+
+/* Sticker (bleibt wie gehabt) */
+.project-tile__sticker {
+  position: absolute;
+  right: clamp(18px, 3vw, 30px);
+  top: clamp(18px, 3vw, 30px);
+  width: clamp(64px, 7vw, 96px);
+  transform: rotate(-10deg) scale(.9);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Scribble */
+.projects__scribble {
+  position: absolute;
+  left: clamp(-80px, -6vw, -140px);
+  bottom: clamp(-200px, -8vw, -260px);
+  width: clamp(220px, 26vw, 340px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===== Responsive: untereinander auf Mobile ===== */
+@media (max-width: 900px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+    height: auto;             /* natürlich wachsen */
+    row-gap: clamp(20px, 4vw, 28px);
+  }
+
+  .projects__col-left,
+  .projects__col-right {
+    height: auto;
+  }
+
+  .project-tile {
+    height: auto;
+    aspect-ratio: 4 / 3;      /* angenehme Höhe auf Mobile */
+  }
+}
