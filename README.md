@@ -24,11 +24,11 @@ Die Platzierung der Sticker mit clamp() war ebenfalls tricky. Es braucht ein Gef
 Eine andere Schwierigkeit war, genug Inhalt abzubilden, ohne die Seite zu überladen. Ich wollte einen guten Überblick über meine Projekte geben, gleichzeitig aber nicht riesen Romane erzeugen. Auch die Erstellung der visuellen Assets war zeitintensiv: Mockups in Photoshop zu gestalten und alles für Web-Optimierung vorzubereiten hat extrem viel mehr Zeit gebraucht als erwartet. Ursprünglich wollte ich sogar ein Hero-Video / Showreel einbauen – das hätte aber den zeitlichen Rahmen komplett gesprengt.
 
 # Ressourcen
-•	GSAP & ScrollTrigger Dokumentation
-•	Google Fonts (Epilogue, Lora)
-•	Figma – UI/UX Design Grundlage für Layout, Spacing & Assets
-•	Photoshop
-•	Chat GPT als Codeassistent
+* GSAP & ScrollTrigger Dokumentation
+* Google Fonts (Epilogue, Lora)
+* Figma – UI/UX Design Grundlage für Layout, Spacing & Assets
+* Photoshop
+* Chat GPT als Codeassistent
 
 Interessanterweise habe ich fast keine Tutorials oder YouTube-Videos benötigt. Vieles entstand tatsächlich aus Vibe-Coding oder durch gezieltes Ausprobieren, Debuggen und Optimieren.
 
