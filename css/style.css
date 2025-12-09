@@ -271,23 +271,24 @@ pointer-events: auto;      /* <-- wichtig */
 
 
 /* ===== More Projects – Overlap Layout ===== */
-:root{
-  --frame: #F0EBE6; /* soft beige that matches your cream */
-}
+
 
 .more-projects{
   position: relative;
-  padding-block: clamp(72px, 12vh, 140px);
+  min-height: 100vh;                         /* nimmt immer mindestens die ganze Höhe ein */
+  padding-block: clamp(40px, 8vh, 80px);     /* etwas weniger Rand als vorher */
   overflow: visible;
+  display: flex;
+  align-items: center;                       /* Stack vertikal mittig */
 }
 
-/* Stack ist die Bühne für Titel + Karten */
 .more-projects__stack{
   position: relative;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
+  width: 100%;
   padding-inline: min(8vw, 64px);
-  height: clamp(420px, 64vh, 620px); /* genügend Höhe für Überlappung */
+  height: clamp(420px, 56vh, 580px);        /* etwas flacher, sitzt in der Mitte vom Viewport */
 }
 
 /* Titel über den Karten */
@@ -312,9 +313,9 @@ pointer-events: auto;      /* <-- wichtig */
 .more-projects__scribble{
   position: absolute;
   z-index: 0;
-  right: clamp(-100px, -8vw, -200px);
-  bottom: clamp(-300px, -10vw, -800px);
-  width: clamp(180px, 22vw, 320px);
+  right: -6vw;                              /* immer leicht aus dem Viewport raus */
+  bottom: clamp(-40px, -6vh, -90px);        /* knapp unter den Karten */
+  width: clamp(200px, 24vw, 360px);
   pointer-events: none;
 }
 
@@ -325,7 +326,7 @@ pointer-events: auto;      /* <-- wichtig */
   left: clamp(70px, 10vw, 260px);
   top: clamp(110px, 18vh, 200px);
   width: clamp(64px, 8vw, 104px);
-  opacity: 0;                /* ploppt per JS */
+  opacity: 0;
   transform: scale(.85);
   pointer-events: none;
 }
@@ -388,6 +389,8 @@ pointer-events: auto;      /* <-- wichtig */
 /* ---- konkrete Positionen + Aspect Ratios (wie im Screenshot) ---- */
 
 /* linke Karte: kleiner, 4:3, leicht nach links geneigt */
+/* linke Karte: rechtskante in der Mitte */
+/* linke Karte */
 .mp-card--left{
   z-index: 1;
   aspect-ratio: 4 / 3;
@@ -397,19 +400,23 @@ pointer-events: auto;      /* <-- wichtig */
   transform: rotate(-6deg);
 }
 
-/* rechte Karte: größer, 5:4, überlappt links, leicht rechts geneigt */
+/* rechte Karte */
 .mp-card--right{
   z-index: 2;
   aspect-ratio: 5 / 4;
   width: min(44vw, 720px);
   top: clamp(90px, 18vh, 200px);
-  left: clamp(260px, 36vw, 520px); /* überlappt die linke */
+  left: clamp(260px, 36vw, 520px);
   transform: rotate(6deg);
 }
 
 /* Responsive: untereinander, ohne Tilt */
 @media (max-width: 900px){
-  .more-projects__stack{ height: auto; padding-top: 88px; padding-bottom: 40px; }
+  .more-projects__stack{
+    height: auto;
+    padding-top: clamp(120px, 22vh, 160px);   /* ↑ mehr Abstand zwischen Titel und erster Karte */
+    padding-bottom: 40px;
+  }
 
   .mp-card,
   .mp-card--right,
@@ -418,12 +425,13 @@ pointer-events: auto;      /* <-- wichtig */
     left: 0; top: 0;
     width: 100%;
     transform: none;
-    margin-bottom: clamp(16px, 4vw, 26px);
+    margin-bottom: clamp(18px, 5vw, 30px);
   }
 
   .more-projects__sticker{
-    left: clamp(20px, 12vw, 100px);
-    top: clamp(76px, 14vh, 140px);
+    left: 50%;
+    top: clamp(60px, 14vh, 120px);
+    transform: translateX(-180%) scale(.9);
   }
 }
 

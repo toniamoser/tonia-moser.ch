@@ -20,6 +20,8 @@
   isolation: isolate; /* macht eine eigene Stacking-Context-Ebene -> z-index wird zuverlässig */
 }
 
+
+
 /* Hintergrundbild füllt die Box */
 .hero__image{
   position: absolute;

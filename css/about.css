@@ -206,15 +206,18 @@ background: #e8e2db;
 
 /* ========== CARD BASIS ========== */
 .wcard{
-  --w-open:   clamp(350px, 40vw, 700px);
+  --w-open:   clamp(250px, 50vw, 700px);
   --w-closed: clamp(260px, 32vw, 360px);
   --r: 20px;
 
   flex: 0 0 var(--w-closed);
-  height: clamp(220px, 12vh, 480px);   /* stabile, angenehme Höhe */
+  height: clamp(340px, 20vh, 480px);   /* stabile, angenehme Höhe */
   border-radius: var(--r);
 
-  background: #E9F895;
+  background: var(--cream);
+  border-style: solid;
+  border-color: #EA68CF;
+  border-width: 4px;
   padding: clamp(44px, 10vw, 48px);
 
   display: flex;
@@ -233,8 +236,8 @@ background: #e8e2db;
 .wcard.is-open{
   flex-basis: var(--w-open);
   background: #EA68CF;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   text-align: left;
   color: #F0EBE6; /* Textfarbe für offenen Zustand */
 }
@@ -351,42 +354,17 @@ background: #e8e2db;
 @media (max-width: 900px){
   .principle__text{ max-width: 92ch; }
   .principle__sticker{
-    right: clamp(16px, 6vw, 48px);
+    right: clamp(16px, 2vw, 48px);
     top: auto;
-    bottom: clamp(18px, 8vh, 40px);
+    bottom: clamp(-20px, -2vh, 40px);
   }
 }
 
-/* Abschnitt unter dem Statement */
-.principle-media {
-  position: relative;
-  padding-block: clamp(28px, 7vh, 72px);
-  overflow: hidden; /* ← WICHTIG */
-  min-height: 60vh;
-}
-
-.principle-media__inner{
-  max-width: 1100px;
-  margin: 0 auto;
-  padding-inline: min(7vw, 48px);
-}
-
-.principle-media__frame{
-  display: block;
-  border-radius: 20px;
-  overflow: hidden;
-  will-change: transform;
-  visibility: visible !important;
-}
-
-.principle-media__img{
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* PRESTATE: absolut zuverlässig unsichtbar & off-screen */
-.principle-media__frame.pm-pre {
-  visibility: hidden !important;
-  transform: translateX(-200%) !important;
+@media (max-width: 600px){
+  .principle__text{ max-width: 80ch; }
+  .principle__sticker{
+    right: clamp(16px, 2vw, 48px);
+    top: auto;
+    bottom: clamp(-80px, -8vh, 40px);
+  }
 }

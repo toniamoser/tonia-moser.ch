@@ -76,7 +76,7 @@ gsap.registerPlugin(ScrollTrigger);
   // --- Bildwechsel ohne Fade & ohne Blitzen ---
 let lastIndex = 0;
 let zCursor   = 1;          // wächst mit, damit jedes neue Bild ganz oben liegt
-const cycles  = 3;          // wie oft der Stapel pro Pin-Strecke durchlaufen wird
+// const cycles  = 3;       // NICHT MEHR NÖTIG
 
 // Startzustände: nur Bild 0 sichtbar, ganz oben
 imgs.forEach((img, i) => {
@@ -84,10 +84,12 @@ imgs.forEach((img, i) => {
 });
 
 tl.eventCallback('onUpdate', () => {
-  const p   = tl.progress();              // 0..1
+  const p   = tl.progress();          // 0..1
   const n   = imgs.length || 1;
-  const raw = Math.floor(p * cycles * n);
-  const idx = raw % n;
+
+  // verteilt 0..1 einmal auf 0..n-1
+  const raw = Math.floor(p * n);
+  const idx = Math.min(n - 1, raw);   // bleibt am Ende auf dem letzten Bild
 
   if (idx !== lastIndex) {
     const next = imgs[idx];
@@ -99,10 +101,6 @@ tl.eventCallback('onUpdate', () => {
 
     // altes Bild sofort deaktivieren (kein Fade)
     gsap.set(prev, { opacity: 0 });
-
-    /* Optional: statt hartem Cut einen superkurzen Snap-Slide
-    gsap.fromTo(next, { xPercent: 2 }, { xPercent: 0, duration: 0.12, ease: "power2.out" });
-    */
 
     lastIndex = idx;
   }
