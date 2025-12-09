@@ -10,6 +10,7 @@
   padding-inline: min(8vw, 64px);
   position: relative;
   text-align: center;
+  background: none
 
 }
 
@@ -32,6 +33,7 @@
 
 .projects {
   position: relative;
+  overflow: visible;      /* falls irgendwo inherited → hier explizit erlauben */
 }
 
 .projects__inner {
@@ -115,13 +117,13 @@
 }
 
 /* Sticker (bleibt wie gehabt) */
-.project-tile__sticker {
+.projects__sticker {
   position: absolute;
-  right: clamp(18px, 3vw, 30px);
-  top: clamp(18px, 3vw, 30px);
+  z-index: 4;
+  right: clamp(20px, -7vw, 80px);
+  top: clamp(20px, -5vh, 70px);   /* leicht über dem rechten Tile „rüberhängen“ */
   width: clamp(64px, 7vw, 96px);
-  transform: rotate(-10deg) scale(.9);
-  opacity: 0;
+  transform: rotate(-8deg) scale(.9);
   pointer-events: none;
 }
 
@@ -129,8 +131,9 @@
 .projects__scribble {
   position: absolute;
   left: clamp(-80px, -6vw, -140px);
-  bottom: clamp(-200px, -8vw, -260px);
+  bottom: clamp(-150px, -6vw, -200px);
   width: clamp(220px, 26vw, 340px);
+  height: auto;
   pointer-events: none;
   z-index: -1;
 }
@@ -140,7 +143,8 @@
   .projects__grid {
     grid-template-columns: 1fr;
     height: auto;             /* natürlich wachsen */
-    row-gap: clamp(20px, 4vw, 28px);
+    row-gap: 8px;
+    gap: 8px;
   }
 
   .projects__col-left,

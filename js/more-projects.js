@@ -27,24 +27,22 @@ gsap.registerPlugin(ScrollTrigger);
     }
   );
 
-  // Sticker Pop
-  if (sticker) {
-    gsap.fromTo(
-      sticker,
-      { opacity: 0, scale: 0.7, y: 12 },
-      {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        duration: 0.9,
-        delay: 0.25,            // <<––––– NEU: späteres Pop
-        ease: "back.out(1.9)",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 10%", // ✅ ähnlich spät
-          once: true
-        }
+  // Sticker nur leicht „poppen“, aber Sichtbarkeit kommt aus CSS
+if (sticker) {
+  gsap.from(
+    sticker,
+    {
+      scale: 0.7,
+      y: 12,
+      duration: 0.9,
+      delay: 0.25,
+      ease: "back.out(1.9)",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 70%",   // ungefähr wie die Karten
+        once: true
       }
-    );
-  }
+    }
+  );
+}
 })();

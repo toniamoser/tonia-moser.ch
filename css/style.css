@@ -326,7 +326,7 @@ pointer-events: auto;      /* <-- wichtig */
   left: clamp(70px, 10vw, 260px);
   top: clamp(110px, 18vh, 200px);
   width: clamp(64px, 8vw, 104px);
-  opacity: 0;
+  opacity: 1;                /* 🔥 immer sichtbar, JS macht nur noch Bewegung */
   transform: scale(.85);
   pointer-events: none;
 }

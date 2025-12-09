@@ -6,6 +6,12 @@
   position: relative;
 }
 
+@media (max-width:900px){
+  .project-hero { 
+    min-height: 60vh;
+  }
+}
+
 
 
 /* Content */
@@ -16,6 +22,10 @@
   margin: 12vh auto 0;
   padding: 0 min(7vw, 56px);
   text-align: center;
+}
+
+@media (max-width:900px){
+  .project-hero__inner{ margin-top: 10vh; }
 }
 
 /* Eyebrow (nur Kundenname wird unterstrichen) */
@@ -76,6 +86,32 @@
   border-radius: 22px;
   overflow: hidden;
   will-change: transform;
+}
+
+@media (min-width: 1025px){
+  .project-shot__frame{
+    position: relative;
+    height: calc(100vh - 2 * clamp(16px, 4vw, 24px));
+    min-height: 72vh;
+    max-height: 90vh;
+    border-radius: 22px;
+    overflow: hidden;
+    will-change: transform;
+  }
+}
+
+/* Tablets & Mobile: max. quadratisch */
+@media (max-width: 1024px){
+  .project-shot__frame{
+    position: relative;
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;                 /* 🔥 nie höher als breit */
+    max-height: min(90vh, 100vw);
+    border-radius: 22px;
+    overflow: hidden;
+    will-change: transform;
+  }
 }
 
 /* Bild ist größer, damit bei Parallax keine Ränder durchscheinen */
@@ -238,18 +274,41 @@
 
   /* Max dimension → wie Start-Hero */
   max-width: 1600px;
-  max-height: 90vh;
-}
+max-height: 100vw; }
 
 /* Sticker an rechter Kante */
 .statement-feature__sticker {
   position: absolute;
   right: clamp(12px, 3vw, 30px);
-  bottom: clamp(12px, -5vw, 30px);
+  bottom: clamp(-20px, -5vw, 30px);
   width: clamp(70px, 10vw, 120px);
   opacity: 0;
   transform: scale(.85);
   z-index: 4;
+}
+
+@media (max-width: 724px){
+  .statement-feature__sticker{
+    bottom: 40px;
+  }
+}
+
+@media (max-width: 624px){
+  .statement-feature__sticker{
+    bottom: 60px;
+  }
+}
+
+@media (max-width: 564px){
+  .statement-feature__sticker{
+    bottom: 100px;
+  }
+}
+
+@media (max-width: 424px){
+  .statement-feature__sticker{
+    bottom: 180px;
+  }
 }
 
 /* Scribble */
@@ -263,3 +322,12 @@
   z-index: 3;
 }
 
+/* ==== OVERRIDE: Project Shot – auf kleineren Screens max. quadratisch ==== */
+@media (max-width: 1024px){
+  .project-shot__frame{
+    height: auto;          /* überschreibt calc(100vh - …) */
+    min-height: 0;         /* überschreibt 72vh */
+    aspect-ratio: 1 / 1;   /* 🔥 nie höher als breit */
+    max-height: 100vw;     /* Sicherheitsnetz, falls aspect-ratio ignoriert wird */
+  }
+}
