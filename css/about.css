@@ -235,11 +235,16 @@ background: #e8e2db;
 /* Offener Zustand: deutlich breiter, linker Content-Align */
 .wcard.is-open{
   flex-basis: var(--w-open);
-  background: #EA68CF;
+  background: #000000;
+  border-color: #e8e2db;
   justify-content: center;
   align-items: center;
   text-align: left;
   color: #F0EBE6; /* Textfarbe für offenen Zustand */
+}
+
+.wcard.is-open h2{
+color: #EA68CF;
 }
 
 /* ======= HEAD / TITLE / UNDERLINE in der Card ======= */
