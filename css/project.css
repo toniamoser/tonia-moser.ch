@@ -343,3 +343,31 @@ max-height: 100vw; }
   aspect-ratio: 9 / 16;
   height: auto;
 }
+
+.project-card--portrait {
+  aspect-ratio: 9 / 16;
+  height: auto;
+
+}
+
+.project-card--portrait .project-card__img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+}
+
+.project-text-link {
+  font-family: Epilogue;
+font-size: clamp(1rem, 2vw, 1.125rem);
+font-style: normal;
+font-weight: 400;
+line-height: 160%; /* 24px */
+letter-spacing: -0.36px;
+  color: #ed5fc5;
+  text-decoration: none;
+}
+
+.project-text-link:hover {
+   text-decoration: underline;
+}
