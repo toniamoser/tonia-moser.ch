@@ -331,3 +331,15 @@ max-height: 100vw; }
     max-height: 100vw;     /* Sicherheitsnetz, falls aspect-ratio ignoriert wird */
   }
 }
+
+.project-card__video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+}
+
+.project-card:has(.project-card__video) {
+  aspect-ratio: 9 / 16;
+  height: auto;
+}
